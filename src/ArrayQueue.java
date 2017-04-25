@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 // ArrayQueue class
 //
@@ -72,7 +73,7 @@ public class ArrayQueue<AnyType> {
 	 *             if the queue is empty.
 	 */
 	public AnyType dequeue() {
-		if (isEmpty())
+		if (zisEmpty())
 			throw new UnderflowException("ArrayQueue dequeue");
 		currentSize--;
 
@@ -127,21 +128,35 @@ public class ArrayQueue<AnyType> {
 	
 	public void printQueue(){
 		for(AnyType s : this.theArray){
-			System.out.print(s+"\t");
+			if(s != null)
+				System.out.print(s+"\t");
 		}
 		
 	}
 	
-	public AnyType[] reverse(){
-		AnyType[] temp = (AnyType[]) new Object[this.theArray.length];
-		for(int i = 0; i <= this.theArray.length; i++){
-			temp[i] = this.theArray[this.theArray.length - i];
+	public ArrayQueue<AnyType> reverse(){
+		if(isEmpty())
+			throw new UnderflowException("ArrayQueue reverse");
+		ArrayQueue<AnyType> temp = new ArrayQueue<AnyType>();
+		for(int i = 0; i < currentSize; i++){
+			temp.theArray[i]= (AnyType) this.theArray[back--];
 		}
 		return temp;
 	}
 
 	public static void main(String[] arg) {
 		ArrayQueue<String> q = new ArrayQueue<String>();
+		
+		ArrayQueue<Integer> que = new ArrayQueue<Integer>();
+		que.enqueue(1257);
+		que.enqueue(57);
+		que.enqueue(257);
+		que.enqueue(1337);
+		que.printQueue();
+		que = que.reverse();
+		System.out.println();
+		System.out.println();
+		que.printQueue();
 
 		try {
 
