@@ -124,6 +124,21 @@ public class ArrayQueue<AnyType> {
 		front = 0;
 		back = currentSize - 1;
 	}
+	
+	public void printQueue(){
+		for(AnyType s : this.theArray){
+			System.out.print(s+"\t");
+		}
+		
+	}
+	
+	public AnyType[] reverse(){
+		AnyType[] temp = (AnyType[]) new Object[this.theArray.length];
+		for(int i = 0; i <= this.theArray.length; i++){
+			temp[i] = this.theArray[this.theArray.length - i];
+		}
+		return temp;
+	}
 
 	public static void main(String[] arg) {
 		ArrayQueue<String> q = new ArrayQueue<String>();
