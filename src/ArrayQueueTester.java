@@ -25,17 +25,12 @@ public class ArrayQueueTester {
 		aq2.enqueue(3);
 		aq2.enqueue(2);
 		aq2.enqueue(1);
-		
+
 		aq2 = aq2.reverse();
 		
-		aq2.dequeue();
-		aq2.dequeue();
-		aq1.dequeue();
-		aq1.dequeue();
+		String aq1S = aq1.printQueue();
+		String aq2S = aq2.printQueue();
 		
-		System.out.println(aq1);
-		System.out.println(aq2);
-		
-		assertSame(aq1, aq2);
+		assertEquals("", aq1S, aq2S);
 	}
 }

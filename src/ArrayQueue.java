@@ -73,7 +73,7 @@ public class ArrayQueue<AnyType> {
 	 *             if the queue is empty.
 	 */
 	public AnyType dequeue() {
-		if (zisEmpty())
+		if (isEmpty())
 			throw new UnderflowException("ArrayQueue dequeue");
 		currentSize--;
 
@@ -126,11 +126,15 @@ public class ArrayQueue<AnyType> {
 		back = currentSize - 1;
 	}
 	
-	public void printQueue(){
+	public String printQueue(){
+		String result ="";
 		for(AnyType s : this.theArray){
 			if(s != null)
 				System.out.print(s+"\t");
+				result = result + " ";
 		}
+		System.out.println();
+		return result;
 		
 	}
 	
