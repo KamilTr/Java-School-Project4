@@ -1,5 +1,5 @@
 class Node {
-	public Object itm;
+	public Object obj;
 	public Node next;
 
 	// Constructors
@@ -9,7 +9,7 @@ class Node {
 	}
 
 	public Node(Object theObject, Node n) {
-		itm = theObject;
+		obj = theObject;
 		next = n;
 	}
 }
