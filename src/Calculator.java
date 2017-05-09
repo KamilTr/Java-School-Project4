@@ -42,7 +42,7 @@ public class Calculator extends JFrame implements ActionListener {
 			exp = "";
 			expressionField.setText(exp);
 		} else if (e.getActionCommand() == "=") {
-			// expressionField.setText(""+evaluate(infixToPostfix(exp)));
+			 expressionField.setText(""+evaluate(infixToPostfix(exp)));
 		}
 
 		else {
@@ -64,6 +64,20 @@ public class Calculator extends JFrame implements ActionListener {
 	}
 
 	public static double evaluate(LinkedList<String> exp) {
+		Stack<String> temp = new Stack<String>();
+		while(!exp.isEmpty()){
+			String x = exp.pop();
+			if((x == "+") || (x == "-") || (x == "*") || (x == "/")){
+				double oper1 = Double.parseDouble(temp.pop());
+				double oper2 = Double.parseDouble(temp.pop());
+				
+				double result = CalculateExpresion(oper1, oper2);
+			}
+			else{
+				temp.push(x);
+			}
+			
+		}
 		return 0;
 	}
 
