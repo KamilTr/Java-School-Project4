@@ -12,75 +12,78 @@
 // ******************ERRORS********************************
 // getFront or dequeue on empty queue
 
-/public class ListQueue<AnyType> 
-{
-    /**
-     * Construct the queue.
-     */
-    public ListQueue( )
-    {
-        front = back = null;
-    }
+public class ListQueue<AnyType> {
+	/**
+	 * Construct the queue.
+	 */
 
-    /**
-     * Test if the queue is logically empty.
-     * @return true if empty, false otherwise.
-     */
-    public boolean isEmpty( )
-    {
-        return front == null;
-    }
+	
+	private ListNode<AnyType> front;
+	private ListNode<AnyType> back;
+	
+	
+	public ListQueue() {
+		front = back = null;
+	}
 
-    /**
-     * Insert a new item into the queue.
-     * @param x the item to insert.
-     */
-    public void enqueue( AnyType x )
-    {
-        if( isEmpty( ) )    // Make queue of one element
-            back = front = new ListNode<AnyType>( x );
-        else                // Regular case
-            back = back.next = new ListNode<AnyType>( x );
-    }
+	/**
+	 * Test if the queue is logically empty.
+	 * 
+	 * @return true if empty, false otherwise.
+	 */
+	public boolean isEmpty() {
+		return front == null;
+	}
 
-    /**
-     * Return and remove the least recently inserted item
-     * from the queue.
-     * @return the least recently inserted item in the queue.
-     * @throws UnderflowException if the queue is empty.
-     */
-    public AnyType dequeue( )
-    {
-        if( isEmpty( ) )
-            throw new UnderflowException( "ListQueue dequeue" );
+	/**
+	 * Insert a new item into the queue.
+	 * 
+	 * @param x
+	 *            the item to insert.
+	 */
+	public void enqueue(AnyType x) {
+		if (isEmpty()) // Make queue of one element
+			back = front = new ListNode<AnyType>(x);
+		else // Regular case
+			back = back.next = new ListNode<AnyType>(x);
+	}
 
-        AnyType returnValue = front.element;
-        front = front.next;
-        return returnValue;
-    }
+	/**
+	 * Return and remove the least recently inserted item from the queue.
+	 * 
+	 * @return the least recently inserted item in the queue.
+	 * @throws UnderflowException
+	 *             if the queue is empty.
+	 */
+	public AnyType dequeue() {
+		if (isEmpty())
+			throw new UnderflowException("ListQueue dequeue");
 
-    /**
-     * Get the least recently inserted item in the queue.
-     * Does not alter the queue.
-     * @return the least recently inserted item in the queue.
-     * @throws UnderflowException if the queue is empty.
-     */
-    public AnyType getFront( ) 
-    {
-        if( isEmpty( ) )
-            throw new UnderflowException( "ListQueue getFront" );
-        return front.element;
-    }
+		AnyType returnValue = front.element;
+		front = front.next;
+		return returnValue;
+	}
 
-    /**
-     * Make the queue logically empty.
-     */
-    public void makeEmpty( )
-    {
-        front = null;
-        back = null;
-    }
+	/**
+	 * Get the least recently inserted item in the queue. Does not alter the
+	 * queue.
+	 * 
+	 * @return the least recently inserted item in the queue.
+	 * @throws UnderflowException
+	 *             if the queue is empty.
+	 */
+	public AnyType getFront() {
+		if (isEmpty())
+			throw new UnderflowException("ListQueue getFront");
+		return front.element;
+	}
 
-    private ListNode<AnyType> front;
-    private ListNode<AnyType> back;
+	/**
+	 * Make the queue logically empty.
+	 */
+	public void makeEmpty() {
+		front = null;
+		back = null;
+	}
+
 }

@@ -147,6 +147,10 @@ public class ArrayQueue<AnyType> {
 		}
 		return temp;
 	}
+	
+	public int size(){
+		return currentSize;
+	}
 
 	public static void main(String[] arg) {
 		ArrayQueue<String> q = new ArrayQueue<String>();
